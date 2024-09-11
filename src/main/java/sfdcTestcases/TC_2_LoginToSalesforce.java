@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import basicScripts.BaseClass;
 import basicScripts.Loginpage;
 
+//Verify successful login to salesforce application
 public class TC_2_LoginToSalesforce extends BaseClass {
 	Loginpage lp;
 	
