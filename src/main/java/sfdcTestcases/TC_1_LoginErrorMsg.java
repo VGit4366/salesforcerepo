@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import basicScripts.BaseClass;
 import basicScripts.Loginpage;
 
+//Verify error message for an invalid login
 public class TC_1_LoginErrorMsg extends BaseClass {
 	Loginpage lp;
 	 
@@ -21,7 +22,7 @@ public class TC_1_LoginErrorMsg extends BaseClass {
 		driver.findElement(loginBtn).click();
 		Thread.sleep(2000);
 		String errText = lp.getElementText();
-		String expected = "Please check your username and password. If you still can't log in, contact your Salesforce administrator.";
+		String expected = prop.getProperty("loginerrmsg");
 		Assert.assertEquals(errText, expected);
 	}
 }
