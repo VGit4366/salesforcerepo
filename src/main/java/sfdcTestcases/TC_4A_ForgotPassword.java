@@ -1,46 +1,45 @@
 package sfdcTestcases;
 
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import basicScripts.BaseClass;
+import basicScripts.Loginpage;
+import basicScripts.Logoutpage;
 
 //TC_4A_ForgotPassword: Tests forgot password link to verify reset pwd page is displayed
-public class TC_4A_ForgotPassword {
-	public static void main(String[] args) throws InterruptedException {
-		
-		WebDriver driver = new ChromeDriver();
-		//CommonMethods cm = new CommonMethods();
-		//Loginpage logon = new Loginpage();
+public class TC_4A_ForgotPassword extends BaseClass {
+	Loginpage lp;
+	Logoutpage lo;
+	
+	By reEnterUserNm = By.id("un");
+	By continueBtn = By.xpath("//input[@id='continue']");
+	By forgotPwdMsg = By.xpath("//*[@id='forgotPassForm']/a");
+	By forgotPwd = By.id("forgot_password_link");
+	
+	@Test()
+	public void verifyForgotPwdLink() throws InterruptedException {
+		lp = new Loginpage(driver);
+		lo = new Logoutpage();
 
-		//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		driver.get("https://login.salesforce.com/");
-
-		WebElement forgotPwd = driver.findElement(By.id("forgot_password_link"));
-		//cm.click(forgotPwd);
-		
+		driver.findElement(forgotPwd).click();
 		String t = driver.getTitle();
-		String expected = "Forgot Your Password | Salesforce";
-		if(t.equalsIgnoreCase(expected))
-			System.out.println("User is in Forgot Password page");
+		String expected = prop.getProperty("forgotpwdtitle");
+		Assert.assertEquals(t, expected);
 		
 		//Enter email ID to reset password
-		WebElement reEnterUserNm = driver.findElement(By.id("un"));
-		//cm.sendKeys(reEnterUserNm, logon.getUser());
-		WebElement continueBtn = driver.findElement(By.xpath("//input[@id=\"continue\"]"));
-		//cm.click(continueBtn);
-		
-		WebElement message = driver.findElement(By.xpath("//*[@id=\"forgotPassForm\"]/div/p[1]"));
-		String expected_msg = "We’ve sent you an email with a link to finish resetting your password.";
-		//cm.verifyTextElement(message, expected_msg);
-
+		driver.findElement(reEnterUserNm).sendKeys(prop.getProperty("wronguser"));
+		driver.findElement(continueBtn).click();
+		Thread.sleep(2000);
+	
+		Assert.assertTrue(driver.findElement(forgotPwdMsg).isDisplayed());
 		String pagetitle = driver.getTitle();
-		String exp = "Check Your Email | Salesforce";
-		//cm.verifyMsgStrings(pagetitle, exp);
-		
-		driver.quit();
-
+		String exp = prop.getProperty("resetpwdpagetitle");
+		Assert.assertEquals(pagetitle, exp);
 	}
 
 }
