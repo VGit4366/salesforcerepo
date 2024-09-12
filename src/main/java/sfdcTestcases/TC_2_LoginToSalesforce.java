@@ -17,5 +17,4 @@ public class TC_2_LoginToSalesforce extends BaseClass {
 		String expected = "User menu for Varsha Kommuri";
 		Assert.assertEquals(userText, expected);
 	}
-
 }
