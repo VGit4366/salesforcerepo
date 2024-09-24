@@ -1,15 +1,21 @@
 package pageMethods;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
-import tests.BaseTest;
+import pageLocators.BasePage;
 
-public class Logoutpage extends BaseTest {
+public class Logoutpage extends BasePage {
 
-	By logoutBtn = By.xpath("//*[@id='userNav-menuItems']/a[5]");
+	public Logoutpage(WebDriver driver) {
+		super(driver);
+	}
+
+	@FindBy(xpath = "//*[@id='userNav-menuItems']/a[5]")
+	WebElement logoutBtn;
 
 	public void logOutUser() {
-		getBrowser().findElement(logoutBtn).click();
+		logoutBtn.click();
 	}
 }

@@ -27,7 +27,11 @@ By userMenu = By.xpath("//*[@id='userNav']");
 		driver.findElement(loginBtn).click();
 	}
 	
-	public String getElementText() {
+	public String getElementText() throws InterruptedException {
+		WebElement ele = driver.findElement(loginErrorMsg);
+		while(!ele.isDisplayed()) {
+			ele.wait(2000);
+		}
 		String eleText = driver.findElement(loginErrorMsg).getText().trim();
 		return eleText;
 	}
