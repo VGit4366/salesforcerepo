@@ -118,6 +118,7 @@ public class LandingPageTests extends BaseTest {
 		Assert.assertTrue(lpg.verifyUserMenuOptions(), "Dropdown is displayed");
 		logger.info("verifyDevConsoleOption: User Menu Options are visible");
 		lpg.selectDevConsole(driver);
+		test.get().info("verifyDevConsoleOption: Developer console option is selected");
 		Thread.sleep(5000);
 		Assert.assertTrue(lpg.verifyDevConsoleWindow(driver));
 		logger.info("verifyDevConsoleOption: Finished");

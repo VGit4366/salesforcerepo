@@ -28,6 +28,9 @@ public class HomePageElements extends BasePage {
 	
 	@FindBy(xpath = "//*[@id='userNav-menuItems']/a[3]")
 	public WebElement devConsole;
+	
+	@FindBy(xpath = "//*[@id='AllTab_Tab']")
+	public WebElement allTabBtn;
 
 	public boolean isHomePage() {
 		return this.communityPanel.isDisplayed();
@@ -37,6 +40,9 @@ public class HomePageElements extends BasePage {
 		this.userMenu.click();
 	}
 	
+	public void clickAllTabsBtn() {
+		this.allTabBtn.click();
+	}
 
 	public MyProfilePageElements selectMyProfilePage(WebDriver driver) {
 		this.myProfile.click();
