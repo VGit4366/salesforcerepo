@@ -5,7 +5,7 @@
 	<parameter name="headless" value="false" ></parameter>
   <test name="Test">
     <classes>
-      <class name="tests.LoginPageTests"/>
+      <class name="tests.LandingPageTests"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- ParallelSuite -->

@@ -13,7 +13,6 @@ import pageMethods.Loginpage;
 import pageMethods.Logoutpage;
 import utils.FileUtils;
 
-//Verify error message for an invalid login
 @Listeners(ListenersSFDC.class)
 public class LoginPageTests extends BaseTest {
 	Loginpage lp;
