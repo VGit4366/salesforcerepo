@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="log4j2.xsd" status="ALL"
+               name="sfdc">
+  <Appenders>
+    	<RollingFile name="rollingFile"
+    		fileName="src/main/resources/logs/regressiontest-${date:yyyy-MM-dd-HH-mm}.log"
+    		filePattern="log/application-%d{yyyy-MM-dd-HH-mm}-%i.log">
+	      	<PatternLayout>
+	      		<Pattern>%d{yyyy-MM-dd-HH:mm:ss} %-5p %m%n </Pattern>
+	      	</PatternLayout>
+	      	<Policies>
+	      		<SizeBasedTriggeringPolicy size="1MB" />
+	      	</Policies>
+    	</RollingFile>
+    <Console name="Console" target="SYSTEM_OUT">
+    		<PatternLayout
+    		pattern="%highlight{%d [%t] %-5level: %msg%n%throwable}" />
+    </Console>
+  </Appenders>
+  <Loggers>
+  		<Root level="ALL">
+  			<AppenderRef ref="rollingFile" />
+  			<AppenderRef ref="Console" />
+  		</Root>
+    </Loggers>
+ </Configuration>

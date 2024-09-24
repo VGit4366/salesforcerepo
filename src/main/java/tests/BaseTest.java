@@ -3,7 +3,6 @@ package tests;
 import java.lang.reflect.Method;
 import java.time.Duration;
 import java.util.Properties;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -18,13 +17,13 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
-
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-
 import pageMethods.Landingpage;
+import pageMethods.Loginpage;
 import utils.ReportManager;
 
+//Base test for all common methods
 public class BaseTest {
 	ExtentReports extent;    Landingpage lp = null;
     Properties prop = new Properties();
@@ -87,6 +86,7 @@ public class BaseTest {
 		  setDriver(browserName, false);  
 		  WebDriver driver = getBrowser();
 		  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		  Loginpage lp = new Loginpage(driver);
 	  } 
 	  
 	  @AfterMethod(alwaysRun=true) 

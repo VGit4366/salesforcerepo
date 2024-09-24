@@ -31,7 +31,6 @@
 	    <groupId>org.testng</groupId>
 	    <artifactId>testng</artifactId>
 	    <version>7.10.2</version>
-	    <scope>test</scope>
 	</dependency>
 	
 	<!-- https://mvnrepository.com/artifact/org.slf4j/log4j-over-slf4j -->
@@ -54,6 +53,7 @@
 	    <artifactId>log4j-core</artifactId>
 	    <version>2.24.0</version>
 	</dependency>
+	
 	<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
 	<dependency>
 	    <groupId>org.apache.logging.log4j</groupId>

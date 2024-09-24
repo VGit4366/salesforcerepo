@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="3" parallel="methods" name="ParallelSuite">
-<listeners>
-	<listener class-name="main.java.listeners.ListenersSFDC"></listener>
-</listeners>
+<suite thread-count="5" parallel="methods" name="ParallelSuite">
 	<parameter name="bName" value="chrome" ></parameter>
-  <test name="ChromeTest">
+	<parameter name="headless" value="false" ></parameter>
+  <test name="Test">
     <classes>
       <class name="tests.LoginPageTests"/>
     </classes>
