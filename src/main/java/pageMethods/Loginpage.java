@@ -1,5 +1,7 @@
 package pageMethods;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,6 +24,7 @@ By userMenu = By.xpath("//*[@id='userNav']");
 
 	
 	public void userLogin(String uname, String pass) {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.findElement(userName).sendKeys(uname);
 		driver.findElement(passWd).sendKeys(pass);
 		driver.findElement(loginBtn).click();

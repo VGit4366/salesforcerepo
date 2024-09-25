@@ -22,5 +22,11 @@ public class FileUtils {
 		p.load(new FileReader(FileConstants.HOME_TEST_DATA_FILE_PATH));
 		return p.getProperty(key);
 	}
+	
+	public static String readAcctDataPropertiesFile(String key) throws FileNotFoundException, IOException {
+		Properties p = new Properties();
+		p.load(new FileReader(FileConstants.ACCT_DATA_FILE_PATH));
+		return p.getProperty(key);
+	}
 }
 

@@ -1,0 +1,10 @@
+2024-09-24-22:41:16 INFO  verifyAccountCreation: Browser launched
+2024-09-24-22:41:20 INFO  verifyAccountCreation: User logged in
+2024-09-24-22:41:21 INFO  verifyAccountCreation: All tabs is selected
+2024-09-24-22:41:22 INFO  verifyAccountCreation: Accounts home page is displayed
+2024-09-24-22:41:35 INFO  verifyAccountCreation: Browser launched
+2024-09-24-22:41:39 INFO  verifyAccountCreation: User logged in
+2024-09-24-22:41:41 INFO  verifyAccountCreation: All tabs is selected
+2024-09-24-22:41:41 INFO  verifyAccountCreation: Accounts home page is displayed
+2024-09-24-22:41:48 INFO  verifyAccountCreation: New account creation page is displayed
+2024-09-24-22:41:48 INFO  verifyAccountCreation: Finished

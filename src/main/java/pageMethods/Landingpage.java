@@ -1,10 +1,8 @@
 package pageMethods;
-import static org.testng.Assert.assertEquals;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
-import org.apache.commons.io.FileUtils;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,7 +12,6 @@ import org.testng.Assert;
 import pageLocators.BasePage;
 import pageLocators.MyProfilePageElements;
 import pageLocators.MySettingsPageElements;
-import tests.BaseTest;
 import utils.WaitUtils;
 
 public class Landingpage extends BasePage {
