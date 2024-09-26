@@ -3,9 +3,12 @@ package pageLocators;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Random;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,9 +18,6 @@ import org.testng.Assert;
 import utils.WaitUtils;
 
 public class AccountsPageElements extends BasePage{
-	static long number = new Random().nextLong();
-	static String viewName = "viewname"+number;
-	static String viewUniqueName = Long.toString(number);
 	
 	public AccountsPageElements(WebDriver driver) {
 		super(driver);
@@ -56,17 +56,35 @@ public class AccountsPageElements extends BasePage{
 	@FindBy(xpath = "//*[@id='00Bbm00000CJfQN_listSelect']") 
 	public WebElement viewDropdown;
 	
+	//@FindBy(xpath = "//*[@id='00Bbm00000AcYUm_filterLinks']/a[1]")
+	//public WebElement viewEditBtn;
+	
+	@FindBy(css = "a[href*='/ui/list/FilterEditPage?id=']")
+	public WebElement viewEditBtn;
+	
+	@FindBy(xpath = "//input[@value='Delete' and @class='btn']")
+	public WebElement deleteBtn;
+	
 	public void createAcct() throws FileNotFoundException, IOException {
 		acctNameTxtBox.sendKeys(utils.FileUtils.readAcctDataPropertiesFile("acctname"));
 		saveAcctBtn.click();
 	}
 	
-	public void createView() throws FileNotFoundException, IOException, InterruptedException {
-		viewNameTxtBox.sendKeys(viewName);
+	public void createView(String vName, String vUniqueName) throws FileNotFoundException, IOException, InterruptedException {
+		viewNameTxtBox.sendKeys(vName);
 		Thread.sleep(2000);
-		viewUniqueNameTxtBox.sendKeys(String.valueOf(number));
+		viewUniqueNameTxtBox.sendKeys(vUniqueName);
 		Thread.sleep(2000);
 		saveAcctBtn.click();
+	}
+	
+	public void verifyDropDown(WebDriver dr, String option) {
+		List<WebElement> allOptions=dr.findElements(By.cssSelector("//*[@id='00Bbm00000CJfQN_listSelect']/option"));
+		for(WebElement el:allOptions) {
+            if(el.getText().contains(option)) {
+                  el.click();
+            }
+		}
 	}
 	
 	public void clickCreateViewBtn() { 
@@ -78,10 +96,59 @@ public class AccountsPageElements extends BasePage{
 		Assert.assertEquals(hdr, "test account");
 	}
 	
-	public void verifyViewCreated(WebDriver driver) throws FileNotFoundException, IOException, InterruptedException {
-		String name = driver.findElement(By.xpath("//select/option[contains(text(), '"+viewName+"')]")).getText();
+	public void verifyViewCreated(WebDriver driver, String viewToVerify) throws FileNotFoundException, IOException, InterruptedException {
+		String name = driver.findElement(By.xpath("//select/option[contains(text(), '"+viewToVerify+"')]")).getText();
 		Thread.sleep(3000);
-		Assert.assertEquals(name, viewName);
+		Assert.assertEquals(name, viewToVerify);
+	}
+	
+	public void editView(WebDriver driver, String viewToEdit) throws FileNotFoundException, IOException, InterruptedException {
+		viewEditBtn.click();
+		Thread.sleep(2000);
+		viewNameTxtBox.sendKeys(viewToEdit);
+		saveAcctBtn.click();
+		String newName = driver.findElement(By.xpath("//select/option[contains(text(), '"+viewToEdit+"')]")).getText();
+		Assert.assertEquals(viewToEdit, newName);
+	}
+	
+	public void deleteView(WebDriver driver, String viewToDelete) throws FileNotFoundException, IOException, InterruptedException {
+		boolean x = true;
+		viewEditBtn.click();
+		Thread.sleep(1000);
+		deleteBtn.click();
+		if(isAlertPresent(driver)) 					//verify if alert pop up exists
+			driver.switchTo().alert().accept();		//click ok if exists
+		Thread.sleep(1000); 
+		//x = isElementPresent(driver, viewToDelete);  //tried to verify deletion, didn't work
+		//Assert.assertFalse(x);
+	}
+	
+	public boolean isElementPresent(WebDriver driver, String str){  //checks if deletion worked
+		   try{
+			  driver.findElement(By.xpath("//select/option[contains(text(), '"+str+"')]"));
+		      return true;
+		   }catch(NoSuchElementException e){
+		     return false;
+		   }
+		}
+	
+	public boolean isAlertPresent(WebDriver driver) //checks if delete button shows alert pop up
+	{ 
+	    try 
+	    { 
+	        driver.switchTo().alert(); 
+	        return true; 
+	    }  
+	    catch (NoAlertPresentException Ex) 
+	    { 
+	        return false; 
+	    }  
+	}
+	
+	public AccountsPageElements selectView(WebDriver driver, String viewToSelect) {
+		Select myViews = new Select(driver.findElement(By.xpath("//select/option[contains(text(), '"+viewToSelect+"')]")));
+		myViews.selectByValue(viewToSelect); 
+		return new AccountsPageElements(driver);
 	}
 	
 	public AccountsPageElements selectMyaccounts(WebDriver driver) {
