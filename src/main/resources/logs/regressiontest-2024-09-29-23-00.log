@@ -1,0 +1,12 @@
+2024-09-29-23:00:25 INFO  verifyLoginToSalesforce: Browser launched
+2024-09-29-23:00:25 INFO  verifyLoginErrorMsg: Browser launched
+2024-09-29-23:00:25 INFO  verifyRememberMeCheckBox: Browser launched
+2024-09-29-23:00:28 INFO  verifyForgotPwdLink: Browser launched
+2024-09-29-23:00:28 INFO  verifyLoginErrorMsg: Login successful
+2024-09-29-23:00:29 INFO  verifyForgotPwdErrorMsg: Browser launched
+2024-09-29-23:00:29 INFO  verifyForgotPwdErrorMsg: Login attempted
+2024-09-29-23:00:29 INFO  verifyForgotPwdErrorMsg: Login error message verified
+2024-09-29-23:00:29 INFO  verifyForgotPwdErrorMsg: Finished
+2024-09-29-23:00:39 INFO  verifyForgotPwdLink: Forgot pwd page is displayed
+2024-09-29-23:00:41 INFO  verifyForgotPwdLink: Re-entered email ID for pwd reset
+2024-09-29-23:00:41 INFO  verifyForgotPwdLink: Finished

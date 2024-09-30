@@ -5,6 +5,8 @@
 	<parameter name="headless" value="false" ></parameter>
   <test name="Test">
     <classes>
+      <class name="tests.LoginPageTests"/>
+      <class name="tests.LandingPageTests"/>
       <class name="tests.CreateAccountTests"/>
     </classes>
   </test> <!-- Test -->

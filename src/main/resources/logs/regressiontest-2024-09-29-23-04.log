@@ -1,0 +1,32 @@
+2024-09-29-23:04:05 INFO  verifyAccountCreation: Browser launched
+2024-09-29-23:04:08 INFO  verifyAccountCreation: User logged in
+2024-09-29-23:04:10 INFO  verifyAccountCreation: All tabs is selected
+2024-09-29-23:04:11 INFO  verifyAccountCreation: Accounts home page is displayed
+2024-09-29-23:04:22 INFO  verifyAccountCreation: New account creation page is displayed
+2024-09-29-23:04:22 INFO  verifyAccountCreation: Finished
+2024-09-29-23:04:26 INFO  verifyCreateAcctReport: Browser launched
+2024-09-29-23:04:30 INFO  verifyCreateAcctReport: User logged in
+2024-09-29-23:04:32 INFO  verifyCreateAcctReport: All tabs is selected
+2024-09-29-23:04:42 INFO  verifyCreateAcctReport: Finished
+2024-09-29-23:04:45 INFO  verifyEditView: Browser launched
+2024-09-29-23:04:49 INFO  verifyEditView: User logged in
+2024-09-29-23:04:51 INFO  verifyEditView: All tabs is selected
+2024-09-29-23:04:52 INFO  verifyEditView: Accounts home page is displayed
+2024-09-29-23:04:57 INFO  verifyEditView: New view created
+2024-09-29-23:05:03 INFO  verifyEditView: View verified
+2024-09-29-23:05:09 INFO  verifyEditView: View is edited
+2024-09-29-23:05:14 INFO  verifyEditView: New account creation page is displayed
+2024-09-29-23:05:14 INFO  verifyEditView: Finished
+2024-09-29-23:05:18 INFO  verifyMergeAccounts: Browser launched
+2024-09-29-23:05:22 INFO  verifyMergeAccounts: User logged in
+2024-09-29-23:05:24 INFO  verifyMergeAccounts: All tabs is selected
+2024-09-29-23:05:24 INFO  verifyMergeAccounts: Accounts home page is displayed
+2024-09-29-23:05:44 INFO  verifyMergeAccounts: Accounts created
+2024-09-29-23:05:46 INFO  verifyMergeAccounts: Back to Accounts page, on Merge Accounts
+2024-09-29-23:05:48 INFO  verifyMergeAccounts: View is edited
+2024-09-29-23:06:15 INFO  verifyViewCreation: Browser launched
+2024-09-29-23:06:19 INFO  verifyViewCreation: User logged in
+2024-09-29-23:06:21 INFO  verifyViewCreation: All tabs is selected
+2024-09-29-23:06:21 INFO  verifyViewCreation: Accounts home page is displayed
+2024-09-29-23:06:38 INFO  verifyViewCreation: New account creation page is displayed
+2024-09-29-23:06:38 INFO  verifyViewCreation: Finished

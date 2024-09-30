@@ -1,0 +1,26 @@
+2024-09-29-23:02:10 INFO  verifyDevConsoleOption: Browser launched
+2024-09-29-23:02:14 INFO  verifyDevConsoleOption: User logged in
+2024-09-29-23:02:15 INFO  verifyDevConsoleOption: User menu clicked
+2024-09-29-23:02:15 INFO  verifyDevConsoleOption: User Menu Options are visible
+2024-09-29-23:02:21 INFO  verifyDevConsoleOption: Finished
+2024-09-29-23:02:24 INFO  verifyLogout: Browser launched
+2024-09-29-23:02:27 INFO  verifyDevConsoleOption: User logged in
+2024-09-29-23:02:30 INFO  verifyLogout: User log out complete
+2024-09-29-23:02:30 INFO  verifyLogout: Finished
+2024-09-29-23:02:33 INFO  verifyMyProfileOption: Browser launched
+2024-09-29-23:02:37 INFO  verifyMyProfileOption: User logged in
+2024-09-29-23:02:42 INFO  verifyMyProfileOption: Edit profile clicked
+2024-09-29-23:02:42 DEBUG MyProfilePage : verifyAboutTab : Error message is fetched
+2024-09-29-23:02:44 INFO  verifyMyProfileOption: User post created
+2024-09-29-23:02:49 INFO  verifyMyProfileOption: File upload completed
+2024-09-29-23:03:15 INFO  verifyMyProfileOption: Photo added and verified
+2024-09-29-23:03:15 INFO  verifyMyProfileOption: Finished
+2024-09-29-23:03:18 INFO  verifyMysettingsOption: Browser launched
+2024-09-29-23:03:22 INFO  verifyMysettingsOption: User logged in
+2024-09-29-23:03:23 INFO  verifyMysettingsOption: User menu clicked
+2024-09-29-23:03:23 INFO  verifyMysettingsOption: User Menu Options are visible
+2024-09-29-23:03:31 INFO  verifyMysettingsOption: Finished
+2024-09-29-23:03:34 INFO  verifySelectUserMenu: Browser launched
+2024-09-29-23:03:38 INFO  verifyLoginToSalesforce: User logged in
+2024-09-29-23:03:40 INFO  verifySelectUserMenu: User Menu items are verified
+2024-09-29-23:03:40 INFO  verifySelectUserMenu: Finished
