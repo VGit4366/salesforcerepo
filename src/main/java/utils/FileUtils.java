@@ -28,5 +28,11 @@ public class FileUtils {
 		p.load(new FileReader(FileConstants.ACCT_DATA_FILE_PATH));
 		return p.getProperty(key);
 	}
+	
+	public static String readOpportunitiesDataPropertiesFile(String key) throws FileNotFoundException, IOException {
+		Properties p = new Properties();
+		p.load(new FileReader(FileConstants.OPPO_DATA_FILE_PATH));
+		return p.getProperty(key);
+	}
 }
 

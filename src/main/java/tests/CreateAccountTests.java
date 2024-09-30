@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Random;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import listeners.ListenersSFDC;
@@ -56,7 +57,7 @@ public class CreateAccountTests extends BaseTest{
 			Thread.sleep(2000);
 			ap.clickNewAcct(driver);
 			Thread.sleep(2000);
-			ap.createAcct();
+			ap.createAcct(utils.FileUtils.readAcctDataPropertiesFile("acctname"));
 			Thread.sleep(2000);
 			ap.verifyAcctPageTitle();
 			logger.info("verifyAccountCreation: New account creation page is displayed");
@@ -131,6 +132,84 @@ public class CreateAccountTests extends BaseTest{
 			logger.info("verifyEditView: New account creation page is displayed");
 			test.get().info("New account creation page is displayed");
 			logger.info("verifyEditView: Finished");
+			test.get().info("Completed");
+		}
+		
+		@Test()
+		//@Ignore
+		public void verifyMergeAccounts() throws InterruptedException, FileNotFoundException, IOException {
+			WebDriver driver = getBrowser();
+			String acctName1 = utils.FileUtils.readAcctDataPropertiesFile("acctname1");
+			String acctName2 = utils.FileUtils.readAcctDataPropertiesFile("acctname2");
+			String acctName = utils.FileUtils.readAcctDataPropertiesFile("acctname");
+			lp = new Loginpage(driver);
+			driver.get(FileUtils.readLoginPropertiesFile("baseURL"));
+			logger.info("verifyMergeAccounts: Browser launched");
+			test.get().info("Browser launched");
+			Thread.sleep(3000);
+			lp.userLogin(FileUtils.readLoginPropertiesFile("username"), FileUtils.readLoginPropertiesFile("password"));
+			logger.info("verifyMergeAccounts: User logged in");
+			test.get().info("User logged in");
+			hp = new HomePageElements(driver);
+			hp.clickAllTabsBtn();
+			logger.info("verifyMergeAccounts: All tabs is selected");
+			ap = new AccountsPageElements(driver);
+			ap.clickAcctsLink();
+			logger.info("verifyMergeAccounts: Accounts home page is displayed");
+			ap.selectMyaccounts(driver);
+			ap.clickGoBtn(driver);
+			Thread.sleep(2000);
+			ap.clickNewAcct(driver);
+			Thread.sleep(2000);
+			ap.createAcct(acctName1);
+			Thread.sleep(2000);
+			ap.clickBackToAcctsPage();
+			ap.clickNewAcct(driver);
+			ap.createAcct(acctName2);
+			logger.info("verifyMergeAccounts: Accounts created");
+			ap.clickBackToAcctsPage();
+			logger.info("verifyMergeAccounts: Back to Accounts page, on Merge Accounts");
+			Thread.sleep(2000);
+			hp.clickAllTabsBtn();
+			logger.info("verifyMergeAccounts: View is edited");
+			Thread.sleep(2000);
+			ap.clickAcctsLink();
+			Thread.sleep(2000);
+			ap.clickMergeAcctsBtn();
+			ap.mergeAccts(driver, acctName);
+			Thread.sleep(2000);
+			ap.deleteAcct(driver, acctName1);
+			logger.info("verifyMergeAccounts: New account creation page is displayed");
+			test.get().info("New account creation page is displayed");
+			logger.info("verifyMergeAccounts: Finished");
+			test.get().info("Completed");
+		}
+		
+		@Test()
+		//@Ignore
+		public void verifyCreateAcctReport() throws InterruptedException, FileNotFoundException, IOException {
+			WebDriver driver = getBrowser();
+			String reportName = utils.FileUtils.readAcctDataPropertiesFile("reportname");
+			String reportUniqueName = utils.FileUtils.readAcctDataPropertiesFile("reportuniquename");
+			lp = new Loginpage(driver);
+			driver.get(FileUtils.readLoginPropertiesFile("baseURL"));
+			logger.info("verifyCreateAcctReport: Browser launched");
+			test.get().info("Browser launched");
+			Thread.sleep(3000);
+			lp.userLogin(FileUtils.readLoginPropertiesFile("username"), FileUtils.readLoginPropertiesFile("password"));
+			logger.info("verifyCreateAcctReport: User logged in");
+			test.get().info("User logged in");
+			hp = new HomePageElements(driver);
+			hp.clickAllTabsBtn();
+			logger.info("verifyCreateAcctReport: All tabs is selected");
+			ap = new AccountsPageElements(driver);
+			ap.clickAcctsLink();
+			Thread.sleep(2000);
+			ap.clickAcctsActivity();
+			Thread.sleep(2000);
+			ap.createReport(driver, reportName, reportUniqueName);
+			test.get().info("New report is saved");
+			logger.info("verifyCreateAcctReport: Finished");
 			test.get().info("Completed");
 		}
 	}
