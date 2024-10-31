@@ -67,8 +67,6 @@ public class OpportunitiesPageElements extends BasePage {
 		if(isAlertPresent(driver)) 					//verify if alert pop up exists
 			driver.switchTo().alert().accept();		//click ok if exists
 		Thread.sleep(1000); 
-		//x = isElementPresent(driver, viewToDelete);  //tried to verify deletion, didn't work
-		//Assert.assertFalse(x);
 	}
 	
 	public boolean isAlertPresent(WebDriver driver) //checks if delete button shows alert pop up
