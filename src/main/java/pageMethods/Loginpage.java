@@ -5,6 +5,8 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 
 import tests.BaseTest;
 
@@ -21,6 +23,18 @@ By passWd = By.xpath("//input[@id='password']");
 By loginBtn = By.xpath("//input[@id='Login']");
 By loginErrorMsg = By.xpath("//div[@id='error']");
 By userMenu = By.xpath("//*[@id='userNav']");
+
+@FindBy(id = "Login")
+public WebElement loginButton;
+
+@FindBy(xpath = "//input[@id='username']")
+public WebElement username;
+
+@FindBy(id = "password")
+public WebElement password;
+
+@FindBy(how = How.ID, using = "error")
+public WebElement errorMessage;
 
 	
 	public void userLogin(String uname, String pass) {
@@ -43,6 +57,26 @@ By userMenu = By.xpath("//*[@id='userNav']");
 		WebElement ele = driver.findElement(userMenu);
 		String strTitle = ele.getAttribute("title");
 		return strTitle;
+	}
+	
+	public void enterUsername(String usernm) {
+		this.username.sendKeys(usernm);
+		logger.debug("Username is entered");
+	}
+	
+	public void enterPassword(String passWord) {
+		this.password.sendKeys(passWord);
+		logger.debug("password is entered");
+	}
+	
+	public String getErrorMessage() {
+		logger.debug("Error message is fetched");
+		return this.errorMessage.getText();
+	}
+	
+	public void clickLogin() {
+		this.loginButton.click();
+		logger.debug("Logging button clicked");
 	}
 
 }
